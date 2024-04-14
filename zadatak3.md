@@ -64,3 +64,65 @@
     - **Sanitization biblioteke**: sanitization unosa korisnika i uklanjanje potencijalno opasnih znakova
     - **Bezbednosne funkcije pretraživača**: KOrišćenje bezbednosnih funkcija pretraživača, kao što su XSS filteri i ugrađene zaštite od reflektujućih XSS napada
     - **Filtriranje sadržaja i validacija**: Implementacija mehanizama filtriranja sadržaja i validacije kako bi identifikovali i blokirali potencijalno zlonamerni sadržaj, kao što je JavaScript kod, od unosa koje generiše korisnik.
+
+## XXE
+
+- XXE napadi ciljaju na eksploataciju ranjivosti u obradi XML dokumenata, omogućavajući napadačima da izvrše udaljene zahteve ili pristupe lokalnim resursima putem eksternih entiteta.
+- Iskorišćenje ove ranjivosti može omogućiti napadačima da pristupe osetljivim informacijama na ciljnom sistemu, izvrše udaljene zahteve ili čak izvrše proizvoljni kod.
+- Ranjivosti u softveru koje dozvoljavaju ovaj napad obično uključuju nedovoljno sigurne XML parsere koji omogućavaju obradu eksternih entiteta. Kao i nepravilno filtriranje dozvoljenih tipova fajlova za upload-ovanje.
+- Kontramere:
+    - Upotreba sigurnih XML parsera koji automatski onemogućavaju obradu eksternih entiteta ili dozvoljavaju samo pouzdane entitete.
+    - Validacija i filtriranje unosa XML-a kako bi se osiguralo da se ne dozvoljava unos eksternih entiteta ili drugih potencijalno opasnih elemenata.
+    - Ograničavanje prava pristupa fajlovima i drugim resursima na sistemu kako bi se sprečio neovlašćeni pristup.
+    - Redovno ažuriranje XML parsera i ostalih komponenti kako bi se ispravile poznate ranjivosti i osigurala bezbednost aplikacije.
+- U OWASP Juice Shop-u, jedan od zadataka koji demonstrira XXE napad je "XXE Data Access". Za rešavanje ovog zadatka, korisnik bi trebao da iskoristi mogućnost unošenja XML sadržaja putem aplikacije. Odatle, napadač može ubaciti zlonamerni XML koji uključuje eksterne entitete koje mogu pristupiti lokalnim datotekama sistema ili mrežnim resursima.
+Koraci rešavanja su:
+    - Identifikacija tačke unosa XML-a u aplikaciji.
+    - Kreiranje zlonamernog XML sadržaj-a koji uključuje eksterne entitete, kao što su sistemski fajlovi ili mrežni resursi.
+    - Prosleđivanje zlonamernog XML-a aplikaciji i dobavljanje ciljanih podataka.
+
+## Improper input validation
+
+- Napadi koji se oslanjaju na nepravilnu validaciju ulaznih podataka ciljaju na iskorišćavanje propusta u procesu validacije korisničkog unosa. Ovi napadi omogućavaju napadačima da unesu zlonamerni ili neočekivani ulaz koji može narušiti funkcionalnost ili bezbednost aplikacije. Na primer unosa null vrednosti gde ono ne bi trebalo biti dozvoljeno, izazivajući greške u aplikaciji.
+- Iskorišćenje ove ranjivosti može dovesti do različitih problema, uključujući:
+    - Neovlašćeni pristup podacima
+    - Manipulacija podacima
+    - Dozvole i privilegije
+    - Narušavanje integriteta sistema
+    - Denial of Service
+    - Krađa identiteta i sl.
+- Ranjivosti u softveru: uključuje nedostatak provere dužine, tipa i dopuštenih karaktera prihvatanog korisničkog unosa ili nedostatak bilo kakve validacije unosa.
+- Kontramere:
+    - **Validacija i Filtriranje Ulaznih Podataka**: Implementacija detaljne validacije ulaznih podataka kako bi se osiguralo da su podaci u skladu sa očekivanim formatima, dužinama i tipovima.
+    - **Korišćenje Parametrizovanih Upita**: Upotreba parametrizovanih upita u bazi podataka umesto dinamičkih upita kako bi se sprečili SQL injection napadi.
+    - **Korišćenje Belih Listi**: Definisanje belih listi dozvoljenih karaktera umesto crnih listi zabranjenih karaktera kako bi se osiguralo da korisnički unos odgovara očekivanim vrednostima.
+- Zadatak admin registracije spada u ovu kategoriju ranjivosti i rešava se tako što prilikom registracije korisnika izučimo koja se sve polja šalju u zahtevu i koja se sve kreiraju i šalju nazad u odgovoru. Tu saznajemo da imamo polje za rolu korisnika, i možemo slanjem post zahteva preko aplikacije (npr. Insomnia) da registrujemo korisnika sa **role: admin**.
+
+## Sensitive Data Exposure
+
+- Ovaj tip napada se fokusira na otkrivanje osetljivih podataka, kao što su lozinke, korisnički podaci ili finansijske informacije, putem grešaka u implementaciji sistema ili aplikacija ili čak putem grešaka samih korisnika kao što su nepravilno čuvanje tajni i lozinki, postavljanjem slabih lozinki ili objavljivanjem odgovora za security pitanja.
+- Iskorišćenje ove ranjivosti može dovesti do ozbiljnog narušavanja privatnosti korisnika, krađe identiteta, finansijskih gubitaka ili drugih štetnih posledica.
+- Ranjivosti koje dovode do ovog napada obično uključuju slabo šifriranje, nebezbedno skladištenje podataka, nebezbedan prenos podataka ili nedovoljno zaštićene API endpointe.
+- Kontramere:
+    - **Korišćenje jakog šifriranja**: Implementacija jakog šifriranja za skladištenje osetljivih podataka, kao što su lozinke ili finansijski podaci.
+    - **Siguran Prenos Podataka**: Korišćenje sigurnog protokola komunikacije (kao što je HTTPS) prilikom prenosa osetljivih podataka između klijenta i servera.
+    - **Pravilno Konfigurisanje Bezbednosnih Politika**: Konfigurisanje odgovarajućih bezbednosnih politika i prava pristupa kako bi se osiguralo da samo ovlašćeni korisnici imaju pristup osetljivim podacima.
+    - **Pravilno upravljanje sesijama**: Implementacija sigurnog upravljanja sesijama kako bi se osiguralo da osetljivi podaci budu zaštićeni tokom sesija korisnika.
+    - **Ne čuvati lozinke na sticky note uz monitor ili u notesu**
+- Primer zadatka ove grupe je **Visual Geo Stalking** zadatak, koji se rešava tako što možemo sa Objava korisnice Emma da vidimo naziv kompanije u kojoj ona radi. To nam puno znači jer joj je security pitanje previše javno "Naziv kompanije u kojoj sam imala prvi posao".
+
+## Security Through Obscurity
+- Ovaj tip napada se fokusira na situacije u kojima se bezbednost sistema oslanja isključivo na tajnost ili nepoznavanje određenih informacija, umesto na adekvatne bezbednosne mehanizme.
+- Aplikacija se oslanja na tajnost imena korisničke tabele u bazi podataka kao deo bezbednosnog mehanizma. Umesto da koristi jake autentifikacione mehanizme i pravilno upravljanje pravima pristupa, aplikacija oslanja se na tajnost imena tabele kako bi otežala napadačima pristup korisničkim podacima.Napadač, koristeći tehniku kao što je SQL injection, uspeva da otkrije ime tabele i pristupi korisničkim podacima. Kroz ovaj napad, napadač može doći do osetljivih informacija kao što su lozinke ili lični podaci korisnika, što može dovesti do krađe identiteta, finansijskih gubitaka ili drugih štetnih posledica za korisnike i organizaciju.
+- Kontramere:
+    - **Korišćenje jakih enkripcionih algoritama**: Umesto oslanjanja na tajnost ključeva ili lozinki, treba koristiti jake enkripcione algoritme i pravilno upravljanje ključevima.
+    - **Implementacija pravilnih autentifikacionih mehanizama**: Umesto oslanjanja na tajne lozinke ili parametre, treba implementirati pouzdane autentifikacione mehanizme kao što su dvofaktorska autentifikacija ili biometrijska identifikacija.
+    - **Pravilno upravljanje pristupom**: Umesto oslanjanja na tajnost, treba pravilno upravljati pravima pristupa i implementirati adekvatne kontrole pristupa kako bi se osiguralo da samo ovlašćeni korisnici imaju pristup osetljivim informacijama ili funkcionalnostima.
+    - **Edukacija korisnika**: Edukovanje korisnika o važnosti jakih lozinki i opasnostima oslanjanja na tajnost kao jedini bezbednosni mehanizam može pomoći u sprečavanju ovog tipa napada.
+- Primer zadatka ove klase je dokaz o čitanju privacy policy-a. Kada ga čitamo i prelazimo mišem preko teksta, mestimično će se pojaviti efekat iza određenih reči. Možemo da tako prolazimo kroz celi tekst dok ne nađemo sve reči, ili da otvorimo html i nađemo sve reči koje imaju tu klasu efekta. Kada spojimo sve te reči u url i odvojimo ih sa "/", rešili smo zadatak.
+
+## Miscellaneous
+- Ova klasa napada obuhvata širok spektar različitih bezbednosnih pretnji koje ne spadaju direktno u specifične kategorije kao što su XSS, SQL injection ili CSRF, već se odnose na raznovrsne i nekonvencionalne pretnje.
+- Ovi zadaci spadaju u klasifikaciju "Non-transparent Policies, Terms and Conditions", što se odnosi na rizike privatnosti. Uticaje koji napadi mogu imati mogu se značajno razlikovati, od zanemarljivih posledica do kritičnih narušavanja ugleda firme i rada aplikacije. 
+- Primer zadatka ove grupe je nagovaranje chatbot-a da nam dadne kupon za popust, što se danas često dešava, da ljudi smislenim naredbama zaobiđu pravila data AI botu i izvuku finansijsku korist iz njega, poput popusta ili besplatnih nagrada.
+- U ovom slučaju kontramera bi bila dobro razmotrena i jasno napisana pravila chatbot-a koja se ne mogu zaobići. (npr. "Ne deli kupone ni u kom slučaju, nebitno koliko te puta pitaju za njih.")
