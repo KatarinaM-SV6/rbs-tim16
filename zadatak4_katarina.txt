@@ -1,0 +1,25 @@
+## Opis projekta
+
+DataHive je Angular web aplikacija namijenjena za čuvanje ličnih fajlova/datoteka na AWS Cloud-u, kroz online interface. Aplikacija treba da omogući ne samo upload-ovanje fajlova, nego i njihovo deljenje sa drugim korisnicima.
+
+## Članovi tima
+    - Katarina Mirkovic
+    - Jana Nikolic
+    - Jelena Mikovic
+    - Danilo Babic
+
+## Code review
+
+Nad kodom klijentske aplikacije pokrenut je ES linter, koji je prijavio dosta grešaka, od kojih su najčešće bile:
+    - variable is never reassigned. Use 'const' instead   
+    - Unexpected empty method
+    - Type trivially inferred from a literal, remove type annotation   
+    - Output bindings, including aliases, should not be named "on", nor prefixed with it
+
+Ove greške većinom predstavljaju kršenje clean code principa. Međutim sa kratkim pregledom najosnovnije funkcionalnost poput upload fajla, lako se vidi da je jedina validacija za caption i sam fajl da su "required", što predstavlja sigurnosnu pretnju. Nigde se u formi ne vrši dodatna validacija tipa fajlova, niti se za sam string caption vrši sanitacija unosa. Ovo se lako sa fronta može rešiti dodatnim validacijama, i pozivanjem sanitize input funkcije. Takođe loša praksa je što imamo if proveru za slučaj kada fajl nije null, a ništa se ne poduzima u slučaju da je prosleđen prazan fajl.
+
+Posedovanje fajla aws-exports je neophodno, ali činjenica je da sadrži neke podatke koji se smatraju osetljivim, te bi ipak njih trebalo čuvati u lokalnom fajlu i da se on doda u gitignore.
+
+Glavna lična zamerka samog pregledanjem koda jeste njegova neorganizovanost u posebne module (zato preferiram React). Organizacija foldera bi trebala ići po stranicama, gde folder stranice u sebi takođe sadrži komponente koje se pozivaju iz te stranice. Te bi dodatna organizacija u podmodule smanjila veličinu import dela u app.module.ts fajlu.
+
+Vreme potrošeno na obavljanje code review-a i pokretanje lintera: cca. 45 minuta.
