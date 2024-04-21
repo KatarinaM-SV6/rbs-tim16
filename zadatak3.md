@@ -65,6 +65,91 @@
     - **Bezbednosne funkcije pretraživača**: KOrišćenje bezbednosnih funkcija pretraživača, kao što su XSS filteri i ugrađene zaštite od reflektujućih XSS napada
     - **Filtriranje sadržaja i validacija**: Implementacija mehanizama filtriranja sadržaja i validacije kako bi identifikovali i blokirali potencijalno zlonamerni sadržaj, kao što je JavaScript kod, od unosa koje generiše korisnik.
 
+
+## Unvalidated Redirects
+
+- Unvalidated redirects napadi se dešavaju kada napadač manipuliše URL i šalje ga korisniku. Nakon otvaranja tog URL-a dolazi do redirekcije ka malicioznoj web stranici ili stranici na koju napadač želi da redirektuje korisnika. Kada korisnik klikne na link, aplikacija ga preusmjerava na sajt kontrolisan od strane napadača. Ovi napadi su opasni je mogu navesti korisnike da misle da posjećuju legitiman sajt, što može dovesti do kompromitovanja naloga, krađe podataka ili infekcije malvera. 
+- Ranjivosti koje omogućavaju napade su:
+    - **Nedostatak validacije unosa** Web aplikacija ne validira pravilno korisnićki unos, uključujući URL-ove korištene za preusmeravanje
+    - **Nebezbedni parametri preusmerenja** Aplikacija koristi parametre u URL-i da odredi odredište za preusmerenje, ali ih ne validira adekvatno
+    - **Preusmerenje na klijentskoj strani** logika preusmerenja implementirana na klijentskoj strani aplikacije
+    - **Session Hijacking** ako napadač preuzme sesiju od korisnika, može preusmjeriti korisnika na zlonamjerne sajtove
+- Kontramere:
+    - **Validacija unosa** Odbaciti sve URL-ove koji ne zadovoljavaju pčekivani pattern
+    - **Implementacija logike preusmerenja na serverskoj strani** ovim ćemo smanjiti rizik od manipulacija klijentskog koda
+    - **Kreirati listu dozvoljenih preusmerenja** vršiti preusmerenja isključivo na bezbedne i unapred definisane rute
+
+
+## Broken Authentication
+
+- Broken Authentication ranjivosti se dešavaju kada napadač ikoristi slabosti u atuentifikaciji da stekne neautorizovan pristup korisničkom nalogu ili osjetljivim podacima. Napadači često pokušavaju brute force napade kako bi pronašli kredencijale korisnika ili koriste prethodno otkrivene kredencijale sa drugih sajtova oslanjajući se na naviku korisnika da koristi iste lozinke. Takođe, veoma često napadač manipuliše sesijom kako bi natjerao korisnika da koristi sesiju kontrolisanu od strane napadača. 
+- Ranjivosti koje omogučavaju napade su:
+    - **Upotreba slabih lozinki** aplikacija ne zahtijeva od korisnika da koristi složene lozinke odnosno da lozinka sadrži velika slova, mala slova, specijalne karaktere itd.
+    - **Nesigurno skladištenje kredencijala** čuvanje kredencijala u slobodnom tekstu i ne korištenje heširanja i šifrovanja u radu sa kredencijalima
+    - **Loše upravljanje sesijama** predvidljivi identifikatori sesije, ne korištenje ograničenog vremena validnost sesije itd.
+    - **Broj pokušaja za prijavu nije ograničen**
+    - **Loš mehanizam za oporavak lozinke** korištenje nesigurne komunikacije za slanje linka za oporavak lozinke
+- Kontramere:
+    - **Zahtijevati jake lozinke od korisnika**
+    - **MFA** koristi multi-faktorsku autentifikaciju kao dodatni sloj zaštite
+    - **Koristiti dobre prakse za upravljanje sesijom** koristiti mehanizam kolačića, definisati istek važenja sesije kao i generisati nepredvidive identifikatore sesija
+    - **Heširanje lozinki**
+
+
+## Insecure Deserialization
+
+- Insecure deserialization je tip bezbednosne pretnje koja se dešava kada sistem deserijalizuje maliciozne podatke bez adekvatne validacije. Npadači mogu iskoristiti ovu pretnju izvršavanjem malicioznog koda, izvršavanjem DOS napada itd.
+
+- Ranjivosti koje omogućavaju napade su:
+    - **Prihvatanje podatak od nesigurnog izvora** aplikacija prihavata serijalizovane podatke od korisničkog unosa, eksternih fajlova i sl.
+    - **Korišćenje neprovjerenih biblioteka**
+    - **Pretpostavka da su serializovani objekti uvijek sigurni** samim tim aplikacija preskače validaciju ovih podataka
+
+- Kontramere:
+    - **Validacija unosa** 
+    - **Koristiti provjerene biblioteke** kako bi se izbjegle česte ranjivosti
+    - **Provjera integriteta** kao što je korištenje digitalnih potpisa ili checksum
+    - **Ograničenje privilegija** limitirati privilegije procesa deserializacije kako bi se izbjegle nepotrebe operacije sa deserijalizovanim podacima
+
+
+## Security Misconfiguration
+
+- Security misconfiguration su ranjivosti uzrokovane lošom konfiguracijom softvera, sistema ili mreže. Ove prijetnje su često posljedica nemara, ne predvidnja odredjenih ranjivosti kao i nesvjesnosti ranjivosti koje mogu biti uzrokovane lošom konfiguracijom.
+- Ranjivosti koje omogućavaju napade su:
+    - **Uobičajeni kredencijali** korištenje default lozinki i korisničkih imena za bazu, mrežu ili softver
+    - **Zastareo softver** 
+    - **Nepotrebni servisi i portovi** ostavljanje nepotrebnih portova i servisa povećavaju povrišinu napada
+    - **Loša kontrola pristupa** loše konfigurisana prava pristupa i permisije mogu rezultovati neautorizovanom pristupu podacima
+    - **Otkrivanje konfiguracionih fajlova** može dovesti do otkriavanja pouzdanih informacija o sistemu i izmjena samih konfiguracija
+    - **Loša SSL konfiguracija** loše konfigurisan TLS protokol, manipulacija sertifikatima i dr.
+- Kontramere:
+    - **Ažuriranje softvera** 
+    - **Definisanje bezbednosne konfiguracije** koristiti dobre prakse prilikom konfiguracije, isključivanje nepotrebnih portova i servisa 
+    - **Alati za automatizovanu konfiguraciju**
+    - **Kontrola pristupa i privilegije**
+    - **Segmentacija mreže** izolacija kritičnih dijelova aplikacije od ostale mreže
+
+
+## Cryptographic Issues
+
+- Cryptographic Issues su napadi koji su uzrokovani u ranjivostima kriptografskih algoritama, protokola kako bi se kompromitovalo povjerljivost, integritet ili autentičnost podataka ili komunikacije. Ovi napadi mogu podrazumijevati razne aspekte kriptografije kao sto su enkripcija, digitalni potpisi, heširanje ili upraljvanje ključevima. 
+- Ranjivosti koje omogućavaju napade su:
+    - **Slabi kriptografski algoritmi** korištenje algoritama sa poznatim ranjivostima kao sto su DES ili MD5
+    - **Generisanje slabih ključeva** generisanje jednostavnih ključeva može dovesti do lakog brute force napada ili kripto analize
+    - **Nedovoljna dužina ključeva**
+    - **Nesigurno skladište ključeva** čuvanje ključeva u tabelama baze podataka ili u memorije u slobodnom obliku
+    - **Slab generator nasumičnih brojeva** može dovesti do generisanja slabih ključeva
+    - **Korištenje nesigurnih kriptografskih biblioteka**
+    - **Loša bezbednosna konfiguracija**
+- Kontramere:
+    - **Upotreba jakih kriptografskih algoritama** kao što su AES, RSA, ECC za enkripciju i SHA-256 za heširanje
+    - **Upotreba preporučene dužine ključeva**
+    - **Siguran generator ključeva**
+    - **Upotreba sigurnog skladištenja ključeva** koristiti sisteme za upravljanje ključevima ili hardverske bezbednosne sisteme. Ograničiti pristup skladištu
+    - **Implementacija jakih mehanizama autentifikacije** čime se štitimo od brute force napada
+    - **Redovno ažuriranje kriptografskih biblioteka**
+
+
 ## XXE
 
 - XXE napadi ciljaju na eksploataciju ranjivosti u obradi XML dokumenata, omogućavajući napadačima da izvrše udaljene zahteve ili pristupe lokalnim resursima putem eksternih entiteta.
