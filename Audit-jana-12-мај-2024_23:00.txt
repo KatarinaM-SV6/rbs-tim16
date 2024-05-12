@@ -1,0 +1,835 @@
+uname
+[?2004l
+Linux
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ uname &> /tmp/audit/uname.txt
+[?2004l
+bash: /tmp/audit/uname.txt: No such file or directory
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ cat /etc/debian_version
+[?2004l
+bookworm/sid
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ lsb_release -a
+[?2004l
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.4 LTS
+Release:	22.04
+Codename:	jammy
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ uname -a
+[?2004l
+Linux jana 6.6.6-76060606-generic #202312111032~1702306143~22.04~d28ffec~dev-Ubuntu SMP PREEMPT_DY x86_64 x86_64 x86_64 GNU/Linux
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ uptime
+[?2004l
+ 21:42:41 up 2 days,  1:43,  4 users,  load average: 0,56, 0,81, 1,24
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ cat /etc/timezone
+[?2004l
+Europe/Belgrade
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ ps -edf | grep ntp
+[?2004l
+jana      385439  383156  0 21:44 pts/4    00:00:00 grep --color=auto [01;31m[Kntp[m[K
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ ntpq -p -n
+[?2004l
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ 0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+ 1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+ 2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+ 3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+ ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000   +0.000   0.000
+-147.91.26.20    147.91.8.1       3 u   32   64    1   51.684   +0.492   0.356
++147.91.8.1      91.187.128.199   2 u   35   64    1   51.713   +2.022   0.420
+*195.178.58.245  192.168.106.2    2 u   35   64    1    4.779   -0.145   0.311
+ 217.24.20.5     45.138.55.62     2 u   31   64    1    5.579   +0.077   0.117
++195.178.51.145  131.188.3.221    2 u   34   64    1    6.727   -0.326   0.189
+-195.250.114.105 192.168.116.2    2 u   32   64    1   19.910   -0.499   0.903
+ 185.125.190.56  183.160.133.132  2 u   42   64    1   42.140   -3.383   0.000
+ 91.189.91.157   132.163.96.1     2 u   38   64    1  108.948   -2.264   0.000
+ 185.125.190.57  183.160.133.132  2 u   37   64    1   42.781   -3.821   0.000
+ 185.125.190.58  79.243.60.50     2 u   39   64    1   42.638   -3.624   0.000
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ dpkg -l | less
+[?2004l
+[?1049h[22;0;0t[?1h=
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                                       Version                                                                Architecture Description
++++-==========================================-================================= ====================================-============-============================== ================================================================================ ================================================================================ =================================================
+ii  accountsservice                            22.07.5-2ubuntu1.5                                                     amd64        query and manipulate user acco unt information
+ii  acl                                        2.3.1-1                                                                amd64        access control list - utilitie s
+ii  acpi-support                               0.144                                                                  amd64        scripts for handling many ACPI  events
+ii  acpid                                      1:2.0.33-1ubuntu1                                                      amd64        Advanced Configuration and Pow er Interface event daemon
+ii  adduser                                    3.118ubuntu5                      :[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K
+[K [KESCESC[KOO[KAA
+[K
+[K:[K...skipping...
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                                       Version                                                               Architecture Description
++++-==========================================-=====================================================================-============-======================================================================================= ========================================================================================================================================================
+ii  accountsservice                            22.07.5-2ubuntu1.5                                                    amd64        query and manipulate user account information
+ii  acl                                        2.3.1-1                                                               amd64        access control list - utilities
+ii  acpi-support                               0.144                                                                 amd64        scripts for handling many ACPI events
+ii  acpid                                      1:2.0.33-1ubuntu1                                                     amd64        Advanced Configuration and Power Interface event daemon
+ii  adduser                                    3.118ubuntu5                                                          all          add and remove users and groups
+ii  adwaita-icon-theme                         41.0-1ubuntu1                                                         all          default icon theme of GNOME (small subset)
+ii  aisleriot                                  1:3.22.22-1                                                           amd64        GNOME solitaire card game collection
+ii  alsa-base                                  1.0.25+dfsg-0ubuntu7                                                  all          ALSA driver configuration files
+ii  alsa-topology-conf                         1.2.5.1-2                                                             all          ALSA topology configuration files
+ii  alsa-ucm-conf                              1.2.8-1pop1~1702492392~22.04~1824345~dev                              all          ALSA Use Case Manager configuration files
+ii  alsa-utils                                 1.2.8-1pop1~1676755497~22.04~a0d6eed~dev                              amd64        Utilities for configuring and using ALSA
+ii  amd64-microcode                            3.20230808.1.1pop1~1691680164~22.04~af10f17~dev                       amd64        Processor microcode firmware for AMD CPUs
+ii  anacron                                    2.3-31ubuntu2                                                         amd64        cron-like program that doesn't go by time
+ii  apache2                                    2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server
+ii  apache2-bin                                2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server (modules and other binary files)
+ii  apache2-data                               2.4.52-1ubuntu4.9                                                     all          Apache HTTP Server (common files)
+ii  apache2-utils                              2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server (utility programs for web servers)
+ii  apg                                        2.2.3.dfsg.1-5build2                                                  amd64        Automated Password Generator - Standalone version
+ii  apparmor                                   3.0.4-2ubuntu2.3                                                      amd64        user-space parser utility for AppArmor
+ii  apport                                     2.20.11-0ubuntu82.5                                                   all          automatically generate crash reports fo
+ amd64        Avahi IPv4LL network address configuration daemon
+ii  avahi-daemon                               0.8-5ubuntu5.2                                                        amd64        Avahi mDNS/DNS-SD daemon
+ii  avahi-utils                                0.8-5ubuntu5.2                                                        amd64        Avahi browsing, publishing and discovery utilities
+ii  baobab                                     41.0-2                                                                amd64        GNOME disk usage analyzer
+ii  base-files                                 12ubuntu4.6                                                           amd64        Debian base system miscellaneous files
+ii  base-passwd                                3.5.52build1                                                          amd64        Debian base system master password and group files
+ii  bash                                       5.1-6ubuntu1.1                                                        amd64        GNU Bourne Again SHell
+ii  bash-completion                            1:2.11-5ubuntu1                                                       all          programmable completion for the bash shell
+ii  bc                                         1.07.1-3build1                                                        amd64        GNU bc arbitrary precision calculator language
+rc  beignet-opencl-icd:amd64                   1.3.2-7build1                                                         amd64        OpenCL library for Intel GPUs
+ii  bind9-dnsutils                             1:9.18.18-0ubuntu0.22.04.2                                            amd64        Clients provided with BIND 9
+ii  bind9-host                                 1:9.18.18-0ubuntu0.22.04.2                                            amd64        DNS Lookup Utility
+ii  bind9-libs:amd64                           1:9.18.18-0ubuntu0.22.04.2                                            amd64        Shared Libraries used by BIND 9
+ii  binfmt-support                             2.2.1-2                                                               amd64        Support for extra binary formats
+ii  binutils                                   2.38-4ubuntu2.6                                                       amd64        GNU assembler, linker and binary utilities
+ii  binutils-common:amd64                      2.38-4ubuntu2.6                                                       amd64        Common files for the GNU assembler, linker and binary utilities
+ii  binutils-x86-64-linux-gnu                  2.38-4ubuntu2.6                                                       amd64        GNU binary utilities, for x86-64-linux-gnu target
+ii  blt                                        2.5.3+dfsg-4.1build2                                                  amd64        graphics extension library for Tcl/Tk - run-time
+ii  bluez                                      5.64-0ubuntu1.1                                                       amd64        Bluetooth tools and daemons
+ii  bluez-cups                                 5.64-0ubuntu1.1                                                       amd64        Bluetooth printer driver for CUPS
+ii  bluez-obexd                                5.64-0ubuntu1.1                                                       amd64        bluez obex daemon
+ii  bolt                                       0.9.2-1                                                               amd64        system daemon to manage thunderbolt 3 devices
+ii  branding-ubuntu                            0.10                                                                  all          Replacement artwork with Ubuntu branding
+ii  brave-browser                              1.65.123                                                              amd64        The web browser from Brave
+ii  brave-keyring                              1.16                                                                  all          Brave Browser keyring and repository files
+ii  bridge-utils                               1.7-1ubuntu3                                                          amd64        Utilities for configuring the Linux Ethernet bridge
+ii  brltty                                     6.4-4ubuntu3                                                          amd64        Access software for a blind person using a braille display
+ii  bsdextrautils                              2.37.2-4ubuntu3.4                                                     amd64        extra utilities from 4.4BSD-Lite
+rc  bsdmainutils                               12.1.7+nmu3ubuntu2                                                    all          Transitional package for more utilities from FreeBSD
+ii  bsdutils                                   1:2.37.2-4ubuntu3.4                                                   amd64        basic utilities from 4.4BSD-Lite
+ii  bubblewrap                                 0.6.1-1                                                               amd64        utility for unprivileged chroot and namespace manipulation
+:[K[H[2J[H[H[2J[HDesired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                                       Version                                                               Architecture Description
++++-==========================================-=====================================================================-============-================================================================================= ==============================================================================================================================================================
+ii  accountsservice                            22.07.5-2ubuntu1.5                                                    amd64        query and manipulate user account information
+ii  acl                                        2.3.1-1                                                               amd64        access control list - utilities
+ii  acpi-support                               0.144                                                                 amd64        scripts for handling many ACPI events
+ii  acpid                                      1:2.0.33-1ubuntu1                                                     amd64        Advanced Configuration and Power Interface event daemon
+ii  adduser                                    3.118ubuntu5                                                          all          add and remove users and groups
+ii  adwaita-icon-theme                         41.0-1ubuntu1                                                         all          default icon theme of GNOME (small subset)
+ii  aisleriot                                  1:3.22.22-1                                                           amd64        GNOME solitaire card game collection
+ii  alsa-base                                  1.0.25+dfsg-0ubuntu7                                                  all          ALSA driver configuration files
+ii  alsa-topology-conf                         1.2.5.1-2                                                             all          ALSA topology configuration files
+ii  alsa-ucm-conf                              1.2.8-1pop1~1702492392~22.04~1824345~dev                              all          ALSA Use Case Manager configuration files
+ii  alsa-utils                                 1.2.8-1pop1~1676755497~22.04~a0d6eed~dev                              amd64        Utilities for configuring and using ALSA
+ii  amd64-microcode                            3.20230808.1.1pop1~1691680164~22.04~af10f17~dev                       amd64        Processor microcode firmware for AMD CPUs
+ii  anacron                                    2.3-31ubuntu2                                                         amd64        cron-like program that doesn't go by time
+ii  apache2                                    2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server
+ii  apache2-bin                                2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server (modules and other binary files)
+ii  apache2-data                               2.4.52-1ubuntu4.9                                                     all          Apache HTTP Server (common files)
+ii  apache2-utils                              2.4.52-1ubuntu4.9                                                     amd64        Apache HTTP Server (utility programs for web servers)
+ii  apg                                        2.2.3.dfsg.1-5build2                                                  amd64        Automated Password Generator - Standalone version
+ii  apparmor                                   3.0.4-2ubuntu2.3                                                      amd64        user-space parser utility for AppArmor
+ii  apport                                     2.20.11-0ubuntu82.5                                                   all          automatically generate crash reports fo amd64        Avahi IPv4LL network address  configuration daemon
+ii  avahi-daemon                               0.8-5ubuntu5.2                                                        amd64        Avahi mDNS/DNS-SD daemon
+ii  avahi-utils                                0.8-5ubuntu5.2                                                        amd64        Avahi browsing, publishing and discovery utilities
+ii  baobab                                     41.0-2                                                                amd64        GNOME disk usage analyzer
+ii  base-files                                 12ubuntu4.6                                                           amd64        Debian base system miscellaneous files
+ii  base-passwd                                3.5.52build1                                                          amd64        Debian base system master password and group files
+ii  bash                                       5.1-6ubuntu1.1                                                        amd64        GNU Bourne Again SHell
+ii  bash-completion                            1:2.11-5ubuntu1                                                       all          programmable completion for the bash shell
+ii  bc                                         1.07.1-3build1                                                        amd64        GNU bc arbitrary precision calculator language
+rc  beignet-opencl-icd:amd64                   1.3.2-7build1                                                         amd64        OpenCL library for Intel GPUs
+ii  bind9-dnsutils                             1:9.18.18-0ubuntu0.22.04.2                                            amd64        Clients provided with BIND 9
+ii  bind9-host                                 1:9.18.18-0ubuntu0.22.04.2                                            amd64        DNS Lookup Utility
+ii  bind9-libs:amd64                           1:9.18.18-0ubuntu0.22.04.2                                            amd64        Shared Libraries used by BIND 9
+ii  binfmt-support                             2.2.1-2                                                               amd64        Support for extra binary formats
+ii  binutils                                   2.38-4ubuntu2.6                                                       amd64        GNU assembler, linker and binary utilities
+ii  binutils-common:amd64                      2.38-4ubuntu2.6                                                       amd64        Common files for the GNU assembler, linker and binary utilities
+ii  binutils-x86-64-linux-gnu                  2.38-4ubuntu2.6                                                       amd64        GNU binary utilities, for x86-64-linux-gnu target
+ii  blt                                        2.5.3+dfsg-4.1build2                                                  amd64        graphics extension library for Tcl/Tk - run-time
+ii  bluez                                      5.64-0ubuntu1.1                                                       amd64        Bluetooth tools and daemons
+ii  bluez-cups                                 5.64-0ubuntu1.1                                                       amd64        Bluetooth printer driver for CUPS
+ii  bluez-obexd                                5.64-0ubuntu1.1                                                       amd64        bluez obex daemon
+ii  bolt                                       0.9.2-1                                                               amd64        system daemon to manage thunderbolt 3 devices
+ii  branding-ubuntu                            0.10                                                                  all          Replacement artwork with Ubuntu branding
+ii  brave-browser                              1.65.123                                                              amd64        The web browser from Brave
+ii  brave-keyring                              1.16                                                                  all          Brave Browser keyring and repository files
+ii  bridge-utils                               1.7-1ubuntu3                                                          amd64        Utilities for configuring the Linux Ethernet bridge
+ii  brltty                                     6.4-4ubuntu3                                                          amd64        Access software for a blind person using a braille display
+ii  bsdextrautils                              2.37.2-4ubuntu3.4                                                     amd64        extra utilities from 4.4BSD-Lite
+:[K
+[K!
+[K
+[K!
+[?1l>[?1049l[23;0;0t[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ rsyslog
+[?2004l
+Command 'rsyslog' not found, did you mean:
+  command 'rsyslogd' from deb rsyslog (8.2112.0-2ubuntu2.2)
+Try: sudo apt install <deb name>
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ 
+[K[01;32mjana@jana[00m:[01;34m~[00m$ 
+[K[01;32mjana@jana[00m:[01;34m~[00m$ ps -edf | grep syslog
+[?2004l
+message+     784       1  0 мај10 ?     00:01:45 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --[01;31m[Ksyslog[m[K-only
+[01;31m[Ksyslog[m[K       802       1  0 мај10 ?     00:00:08 /usr/sbin/r[01;31m[Ksyslog[m[Kd -n -iNONE
+jana        5316    5280  0 мај10 ?     00:00:16 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --[01;31m[Ksyslog[m[K-only
+jana      387574  387185  0 21:50 pts/4    00:00:00 grep --color=auto [01;31m[Ksyslog[m[K
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ cat eclipse[K[K[K[K[K[K[K/etc/r
+rc0.d/        rc3.d/        rc6.d/        rmt           rsyslog.d/
+rc1.d/        rc4.d/        rcS.d/        rpc           rygel.conf
+rc2.d/        rc5.d/        resolv.conf   rsyslog.conf  
+[01;32mjana@jana[00m:[01;34m~[00m$ cat /etc/rsyslog.conf 
+[?2004l
+# /etc/rsyslog.conf configuration file for rsyslog
+#
+# For more information install rsyslog-doc and see
+# /usr/share/doc/rsyslog-doc/html/configuration/index.html
+#
+# Default logging rules can be found in /etc/rsyslog.d/50-default.conf
+
+
+#################
+#### MODULES ####
+#################
+
+module(load="imuxsock") # provides support for local system logging
+#module(load="immark")  # provides --MARK-- message capability
+
+# provides UDP syslog reception
+#module(load="imudp")
+
+# provides TCP syslog reception
+#module(load="imtcp")
+
+# provides kernel logging support and enable non-kernel klog messages
+module(load="imklog" permitnonkernelfacility="on")
+
+###########################
+#### GLOBAL DIRECTIVES ####
+###########################
+
+#
+# Use traditional timestamp format.
+# To enable high precision timestamps, comment out the following line.
+#
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+# Filter duplicated messages
+$RepeatedMsgReduction on
+
+#
+# Set the default permissions for all log files.
+#
+$FileOwner syslog
+$FileGroup adm
+$FileCreateMode 0640
+$DirCreateMode 0755
+$Umask 0022
+$PrivDropToUser syslog
+$PrivDropToGroup syslog
+
+#
+# Where to place spool and state files
+#
+$WorkDirectory /var/spool/rsyslog
+
+#
+# Include all config files in /etc/rsyslog.d/
+#
+$IncludeConfig /etc/rsyslog.d/*.conf
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ cat /etc/rsyslog.conf 
+[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pps -edf | grep syslog
+ifconfig -a
+[?2004l
+br-06cfcea830f2: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.18.0.1  netmask 255.255.0.0  broadcast 172.18.255.255
+        ether 02:42:0b:9e:8f:4d  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-155cff4be5de: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.20.0.1  netmask 255.255.0.0  broadcast 172.20.255.255
+        inet6 fe80::42:9eff:fe67:330d  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:9e:67:33:0d  txqueuelen 0  (Ethernet)
+        RX packets 41  bytes 3550 (3.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8128  bytes 1458791 (1.4 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-bfb664596709: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.26.0.1  netmask 255.255.0.0  broadcast 172.26.255.255
+        ether 02:42:06:75:ae:1c  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-c24d594550fe: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.21.0.1  netmask 255.255.0.0  broadcast 172.21.255.255
+        ether 02:42:6c:be:ad:b4  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-e4b71ec92a8d: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.27.0.1  netmask 255.255.0.0  broadcast 172.27.255.255
+        ether 02:42:62:c8:bf:dc  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-e66994feffd9: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.19.0.1  netmask 255.255.0.0  broadcast 172.19.255.255
+        ether 02:42:5e:b4:3e:b4  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+br-eaed10cfcf8d: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.25.0.1  netmask 255.255.0.0  broadcast 172.25.255.255
+        ether 02:42:90:7d:66:3c  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlp3s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.2  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::4b9d:1ff9:dfb2:901d  prefixlen 64  scopeid 0x20<link>
+        ether f8:34:41:06:d5:7e  txqueuelen 1000  (Ethernet)
+        RX packets 16299356  bytes 22835580063 (22.8 GB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1671961  bytes 254225441 (254.2 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ route -n
+[?2004l
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    600    0        0 wlp3s0
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 wlp3s0
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+172.18.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-06cfcea830f2
+172.19.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-e66994feffd9
+172.20.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-155cff4be5de
+172.21.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-c24d594550fe
+172.22.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-65d78c88788c
+172.23.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-70c7f928ad5a
+172.24.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-6353469d29c7
+172.25.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-eaed10cfcf8d
+172.26.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-bfb664596709
+172.27.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-e4b71ec92a8d
+172.28.0.0      0.0.0.0         255.255.0.0     U     0      0        0 br-4702ba8009a1
+192.168.1.0     0.0.0.0         255.255.255.0   U     600    0        0 wlp3s0
+# This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).
+# Do not edit.
+#
+# This file might be symlinked as /etc/resolv.conf. If you're looking at
+# /etc/resolv.conf and seeing this text, you have followed the symlink.
+#
+# This is a dynamic resolv.conf file for connecting local clients to the
+# internal DNS stub resolver of systemd-resolved. This file lists all
+# configured search domains.
+#
+# Run "resolvectl status" to see details about the uplink DNS servers
+# currently in use.
+#
+# Third party programs should typically not access this file directly, but only
+# through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a
+# different way, replace this symlink by a static file or a different symlink.
+#
+# See man:systemd-resolved.service(8) for details about the supported modes of
+# operation for /etc/resolv.conf.
+
+nameserver 127.0.0.12
+options edns0 trust-ad
+search .
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ cat /etc/resolv.conf
+[?2004l
+127.0.0.1	localhost
+127.0.1.1	jana
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ iptables -L -v
+[?2004l
+iptables v1.8.7 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be
+ root)
+
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ iptables -L -v[1@s[1@u[1@d[1@o[1@ 
+[?2004l
+[sudo] password for jana: 
+Chain INPUT (policy DROP)
+ pkts bytes target     prot opt in     out     source               destination         
+2828K   22G ufw-before-logging-input  all  --  any    any     anywhere             anywhere            
+2828K   22G ufw-before-input  all  --  any    any     anywhere             anywhere            
+18355 1314K ufw-after-input  all  --  any    any     anywhere             anywhere            
+  617 37193 ufw-after-logging-input  all  --  any    any     anywhere             anywhere            
+  617 37193 ufw-reject-input  all  --  any    any     anywhere             anywhere            
+  617 37193 ufw-track-input  all  --  any    any     anywhere             anywhere            
+
+find / -type f -perm -006 2>/dev/null | grep -v /procfind 
+[?2004l
+/sys/kernel/security/apparmor/.remove
+/sys/kernel/security/apparmor/.replace
+/sys/kernel/security/apparmor/.load
+/sys/kernel/security/apparmor/.access
+/etc/mosquitto/passwords
+/snap/vlc/3777/bin/vlc-snap-wrapper.sh
+/snap/vlc/3777/package.mak
+/snap/vlc/3721/bin/vlc-snap-wrapper.sh
+/snap/vlc/3721/package.mak
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ 
+cat /etc/pam.d/common-password
+[?2004l
+#
+# /etc/pam.d/common-password - password-related modules common to all services
+#
+# This file is included from other service-specific PAM config files,
+# and should contain a list of modules that define the services to be
+# used to change user passwords.  The default is pam_unix.
+
+# Explanation of pam_unix options:
+# The "yescrypt" option enables
+#hashed passwords using the yescrypt algorithm, introduced in Debian
+#11.  Without this option, the default is Unix crypt.  Prior releases
+#used the option "sha512"; if a shadow password hash will be shared
+#between Debian 11 and older releases replace "yescrypt" with "sha512"
+#for compatibility .  The "obscure" option replaces the old
+#`OBSCURE_CHECKS_ENAB' option in login.defs.  See the pam_unix manpage
+#for other options.
+
+# As of pam 1.0.1-6, this file is managed by pam-auth-update by default.
+# To take advantage of this, it is recommended that you configure any
+# local modules either before or after the default block, and use
+# pam-auth-update to manage selection of other modules.  See
+# pam-auth-update(8) for details.
+
+# here are the per-package modules (the "Primary" block)
+password	requisite			pam_pwquality.so retry=3
+password	[success=2 default=ignore]	pam_unix.so obscure use_authtok try_first_pass yescrypt
+password	sufficient			pam_sss.so use_authtok
+# here's the fallback if no module succeeds
+password	requisite			pam_deny.so
+# prime the stack with a positive return value if there isn't one already;
+# this avoids us returning an error just because nothing sets a success code
+# since the modules above will each just jump around
+password	required			pam_permit.so
+# and here are more per-package modules (the "Additional" block)
+password	optional	pam_gnome_keyring.so 
+# end of pam-auth-update config
+[K[01;32mjana@jana[00m:[01;34m~[00m$ egrep -v '^#|^$' /etc/sudoers
+[?2004l
+grep: /etc/sudoers: Permission denied
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ egrep -v '^#|^$' /etc/sudoers[1@s[1@u[1@d[1@o[1@ 
+[?2004l
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	use_pty
+root	ALL=(ALL:ALL) ALL
+%admin ALL=(ALL) ALL
+%sudo	ALL=(ALL:ALL) ALL
+@includedir /etc/sudoers.d
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ 
+ps -edf
+[?2004l
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 мај10 ?     00:02:36 /sbin/init splash
+root           2       0  0 мај10 ?     00:00:00 [kthreadd]
+root           3       2  0 мај10 ?     00:00:00 [pool_workqueue_release]
+root           4       2  0 мај10 ?     00:00:00 [kworker/R-rcu_g]
+root           5       2  0 мај10 ?     00:00:00 [kworker/R-rcu_p]
+root           6       2  0 мај10 ?     00:00:00 [kworker/R-slub_]
+root           7       2  0 мај10 ?     00:00:00 [kworker/R-netns]
+root           9       2  0 мај10 ?     00:00:00 [kworker/0:0H-events_highpri]
+root          12       2  0 мај10 ?     00:00:00 [kworker/R-mm_pe]
+root          13       2  0 мај10 ?     00:00:00 [rcu_tasks_kthread]
+root          14       2  0 мај10 ?     00:00:00 [rcu_tasks_rude_kthread]
+root          15       2  0 мај10 ?     00:00:00 [rcu_tasks_trace_kthread]
+root          16       2  0 мај10 ?     00:00:04 [ksoftirqd/0]
+root          17       2  0 мај10 ?     00:01:24 [rcu_preempt]
+root          18       2  0 мај10 ?     00:00:00 [migration/0]
+root          19       2  0 мај10 ?     00:00:00 [idle_inject/0]
+root          20       2  0 мај10 ?     00:00:00 [cpuhp/0]
+root          21       2  0 мај10 ?     00:00:00 [cpuhp/1]
+root          22       2  0 мај10 ?     00:00:00 [idle_inject/1]
+root          23       2  0 мај10 ?     00:00:00 [migration/1]
+root          24       2  0 мај10 ?     00:00:03 [ksoftirqd/1]
+root          26       2  0 мај10 ?     00:00:00 [kworker/1:0H-events_highpri]
+root          27       2  0 мај10 ?     00:00:00 [cpuhp/2]
+root          28       2  0 мај10 ?     00:00:00 [idle_inject/2]
+root          29       2  0 мај10 ?     00:00:00 [migration/2]
+root          30       2  0 мај10 ?     00:00:02 [ksoftirqd/2]
+root          32       2  0 мај10 ?     00:00:00 [kworker/2:0H-events_highpri]
+root          33       2  0 мај10 ?     00:00:00 [cpuhp/3]
+root          34       2  0 мај10 ?     00:00:00 [idle_inject/3]
+root          35       2  0 мај10 ?     00:00:00 [migration/3]
+root          36       2  0 мај10 ?     00:00:02 [ksoftirqd/3]
+root          38       2  0 мај10 ?     00:00:00 [kworker/3:0H-events_highpri]
+root          39       2  0 мај10 ?     00:00:00 [cpuhp/4]
+root          40       2  0 мај10 ?     00:00:00 [idle_inject/4]
+root          41       2  0 мај10 ?     00:00:00 [migration/4]
+root          42       2  0 мај10 ?     00:00:03 [ksoftirqd/4]
+root          44       2  0 мај10 ?     00:00:00 [kworker/4:0H-events_highpri]
+root          45       2  0 мај10 ?     00:00:00 [cpuhp/5]
+root          46       2  0 мај10 ?     00:00:00 [idle_inject/5]
+root          47       2  0 мај10 ?     00:00:00 [migration/5]
+root          48       2  0 мај10 ?     00:00:03 [ksoftirqd/5]
+root          50       2  0 мај10 ?     00:00:07 [kworker/5:0H-kblockd]
+root          51       2  0 мај10 ?     00:00:00 [cpuhp/6]
+root          52       2  0 мај10 ?     00:00:00 [idle_inject/6]
+root          53       2  0 мај10 ?     00:00:00 [migration/6]
+root          54       2  0 мај10 ?     00:11:04 [ksoftirqd/6]
+root          56       2  0 мај10 ?     00:00:00 [kworker/6:0H-events_highpri]
+root          57       2  0 мај10 ?     00:00:00 [cpuhp/7]
+root          58       2  0 мај10 ?     00:00:00 [idle_inject/7]
+root          59       2  0 мај10 ?     00:00:00 [migration/7]
+root          60       2  0 мај10 ?     00:00:02 [ksoftirqd/7]
+root          62       2  0 мај10 ?     00:00:00 [kworker/7:0H-events_highpri]
+root          63       2  0 мај10 ?     00:00:00 [kdevtmpfs]
+root          64       2  0 мај10 ?     00:00:00 [kworker/R-inet_]
+root          66       2  0 мај10 ?     00:00:08 [kauditd]
+root          67       2  0 мај10 ?     00:00:00 [khungtaskd]
+root          68       2  0 мај10 ?     00:00:00 [oom_reaper]
+root          70       2  0 мај10 ?     00:00:00 [kworker/R-write]
+root          71       2  0 мај10 ?     00:04:12 [kcompactd0]
+root          72       2  0 мај10 ?     00:00:00 [ksmd]
+root          74       2  0 мај10 ?     00:00:02 [khugepaged]
+root          75       2  0 мај10 ?     00:00:00 [kworker/R-kinte]
+root          76       2  0 мај10 ?     00:00:00 [kworker/R-kbloc]
+root          77       2  0 мај10 ?     00:00:00 [kworker/R-blkcg]
+root          79       2  0 мај10 ?     00:00:00 [kworker/R-tpm_d]
+root          80       2  0 мај10 ?     00:00:00 [kworker/R-ata_s]
+root          81       2  0 мај10 ?     00:00:00 [kworker/R-md]
+root          82       2  0 мај10 ?     00:00:00 [kworker/R-md_bi]
+root          83       2  0 мај10 ?     00:00:00 [kworker/R-edac-]
+root          84       2  0 мај10 ?     00:00:00 [kworker/R-devfr]
+root          85       2  0 мај10 ?     00:00:00 [watchdogd]
+root          87       2  0 мај10 ?     00:00:05 [kworker/2:1H-events_highpri]
+root          88       2  0 мај10 ?     00:00:00 [ksgxd]
+root          89       2  0 мај10 ?     00:00:46 [kswapd0]
+root          90       2  0 мај10 ?     00:00:00 [ecryptfs-kthread]
+root          91       2  0 мај10 ?     00:00:00 [kworker/R-kthro]
+root          96       2  0 мај10 ?     00:00:00 [kworker/R-acpi_]
+root          98       2  0 мај10 ?     00:00:01 [hwrng]
+root          99       2  0 мај10 ?     00:00:00 [kworker/R-mld]
+root         100       2  0 мај10 ?     00:00:15 [kworker/6:1H-events_highpri]
+root         101       2  0 мај10 ?     00:00:00 [kworker/R-ipv6_]
+root         108       2  0 мај10 ?     00:00:00 [kworker/R-kstrp]
+root         114       2  0 мај10 ?     00:00:00 [kworker/R-charg]
+root         136       2  0 мај10 ?     00:00:11 [kworker/0:1H-events_highpri]
+root         148       2  0 мај10 ?     00:00:13 [kworker/7:1H-events_highpri]
+root         149       2  0 мај10 ?     00:00:09 [kworker/1:1H-events_highpri]
+root         150       2  0 мај10 ?     00:00:08 [kworker/3:1H-kblockd]
+root         151       2  0 мај10 ?     00:00:00 [kworker/5:1H]
+root         152       2  0 мај10 ?     00:00:13 [kworker/4:1H-events_highpri]
+root         176       2  0 мај10 ?     00:00:00 [scsi_eh_0]
+root         177       2  0 мај10 ?     00:00:00 [kworker/R-scsi_]
+root         178       2  0 мај10 ?     00:00:00 [scsi_eh_1]
+root         179       2  0 мај10 ?     00:00:00 [kworker/R-scsi_]
+root         195       2  0 мај10 ?     00:01:54 [irq/87-SYNA2B3C:00]
+root         199       2  0 мај10 ?     00:00:00 [kworker/R-rmi4-]
+root         200       2  0 мај10 ?     00:01:02 [irq/128-i2c_hid_acpi]
+root         236       2  0 мај10 ?     00:00:16 [jbd2/sda4-8]
+root         237       2  0 мај10 ?     00:00:00 [kworker/R-ext4-]
+root         286       1  0 мај10 ?     00:02:13 /lib/systemd/systemd-journald
+root         361       1  0 мај10 ?     00:00:55 /lib/systemd/systemd-udevd
+root         428       2  0 мај10 ?     00:00:00 [kworker/R-cfg80]
+root         437       2  0 мај10 ?     00:03:41 [irq/135-iwlwifi]
+root         462       2  0 мај10 ?     00:00:00 [kworker/R-crypt]
+root         537       2  0 мај10 ?     00:00:00 [kworker/R-ttm]
+root         542       2  0 мај10 ?     00:00:00 [card0-crtc0]
+root         543       2  0 мај10 ?     00:00:00 [card0-crtc1]
+root         544       2  0 мај10 ?     00:00:00 [card0-crtc2]
+systemd+     585       1  0 мај10 ?     00:03:37 /lib/systemd/systemd-oomd
+systemd+     587       1  0 мај10 ?     00:00:26 /lib/systemd/systemd-resolved
+root         771       1  0 мај10 ?     00:00:05 /usr/sbin/acpid
+root         780       1  0 мај10 ?     00:00:00 /usr/lib/bluetooth/bluetoothd
+root         783       1  0 мај10 ?     00:01:14 /usr/bin/system76-power daemon
+root         793       1  0 мај10 ?     00:00:18 /usr/sbin/irqbalance --foreground
+root         795       1  0 мај10 ?     00:00:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         799       1  0 мај10 ?     00:00:09 /usr/libexec/polkitd --no-debug
+syslog       802       1  0 мај10 ?     00:00:09 /usr/sbin/rsyslogd -n -iNONE
+root         809       1  0 мај10 ?     00:00:37 /usr/lib/snapd/snapd
+root         815       1  0 мај10 ?     00:00:06 /usr/libexec/accounts-daemon
+root         817       1  0 мај10 ?     00:00:00 /usr/sbin/cron -f -P
+root         818       1  0 мај10 ?     00:00:00 /usr/libexec/switcheroo-control
+root         819       1  0 мај10 ?     00:00:10 /lib/systemd/systemd-logind
+root         820       1  0 мај10 ?     00:00:12 /usr/sbin/thermald --systemd --dbus-enable --adaptive
+root         822       1  0 мај10 ?     00:00:23 /usr/libexec/udisks2/udisksd
+root         826       1  0 мај10 ?     00:00:03 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+avahi        834     776  0 мај10 ?     00:00:00 avahi-daemon: chroot helper
+root         839       1  0 мај10 ?     00:01:22 /usr/sbin/NetworkManager --no-daemon
+root         881       1  0 мај10 ?     00:00:04 /usr/sbin/ModemManager
+root         910       1  0 мај10 ?     00:00:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         915       1  0 мај10 ?     00:03:27 /usr/bin/containerd
+mosquit+     928       1  0 мај10 ?     00:01:01 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+root         954       1  0 мај10 ?     00:00:00 /usr/sbin/gdm3
+root        1006       1  0 мај10 ?     00:00:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+www-data    1007    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1008    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1009    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1011    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1013    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1015    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1016    1006  0 мај10 ?     00:00:00 nginx: worker process
+www-data    1017    1006  0 мај10 ?     00:00:00 nginx: worker process
+postgres    1022       1  0 мај10 ?     00:00:03 /usr/lib/postgresql/12/bin/postgres -D /var/lib/postgresql/12/main -c config_file=/etc/postgresql/12/main/postgresql.conf
+postgres    1023       1  0 мај10 ?     00:00:03 /usr/lib/postgresql/15/bin/postgres -D /var/lib/postgresql/15/main -c config_file=/etc/postgresql/15/main/postgresql.conf
+postgres    1024       1  0 мај10 ?     00:00:03 /usr/lib/postgresql/16/bin/postgres -D /var/lib/postgresql/16/main -c config_file=/etc/postgresql/16/main/postgresql.conf
+postgres    1033    1024  0 мај10 ?     00:00:00 postgres: 16/main: checkpointer 
+postgres    1034    1024  0 мај10 ?     00:00:01 postgres: 16/main: background writer 
+postgres    1042    1023  0 мај10 ?     00:00:00 postgres: 15/main: checkpointer 
+postgres    1043    1023  0 мај10 ?     00:00:01 postgres: 15/main: background writer 
+mysql       1054       1  0 мај10 ?     00:18:38 /usr/sbin/mysqld
+postgres    1087    1024  0 мај10 ?     00:00:01 postgres: 16/main: walwriter 
+postgres    1088    1024  0 мај10 ?     00:00:00 postgres: 16/main: autovacuum launcher 
+postgres    1090    1024  0 мај10 ?     00:00:00 postgres: 16/main: logical replication launcher 
+postgres    1099    1022  0 мај10 ?     00:00:00 postgres: 12/main: checkpointer   
+postgres    1100    1022  0 мај10 ?     00:00:02 postgres: 12/main: background writer   
+postgres    1101    1022  0 мај10 ?     00:00:02 postgres: 12/main: walwriter   
+postgres    1102    1022  0 мај10 ?     00:00:01 postgres: 12/main: autovacuum launcher   
+postgres    1103    1022  0 мај10 ?     00:00:01 postgres: 12/main: stats collector   
+postgres    1104    1022  0 мај10 ?     00:00:00 postgres: 12/main: logical replication launcher   
+rtkit       1118       1  0 мај10 ?     00:00:01 /usr/libexec/rtkit-daemon
+postgres    1177    1023  0 мај10 ?     00:00:01 postgres: 15/main: walwriter 
+postgres    1178    1023  0 мај10 ?     00:00:00 postgres: 15/main: autovacuum launcher 
+postgres    1179    1023  0 мај10 ?     00:00:00 postgres: 15/main: logical replication launcher 
+root        1370       1  0 мај10 ?     00:00:03 /usr/libexec/upowerd
+root        1374       1  0 мај10 ?     00:00:40 /usr/libexec/packagekitd
+colord      1547       1  0 мај10 ?     00:00:06 /usr/libexec/colord
+root        1787       1  0 мај10 ?     00:02:46 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+kernoops    1797       1  0 мај10 ?     00:00:00 /usr/sbin/kerneloops --test
+kernoops    1799       1  0 мај10 ?     00:00:00 /usr/sbin/kerneloops
+root        5265     954  0 мај10 ?     00:00:00 gdm-session-worker [pam/gdm-password]
+jana        5280       1  0 мај10 ?     00:02:06 /lib/systemd/systemd --user
+jana        5281    5280  0 мај10 ?     00:00:00 (sd-pam)
+jana        5287    5280  0 мај10 ?     00:08:12 /home/jana/.local/share/kite/current/kited --system-boot
+jana        5288    5280  0 мај10 ?     00:00:00 /usr/bin/pipewire
+jana        5289    5280  0 мај10 ?     00:00:00 /usr/bin/pipewire-media-session
+jana        5290    5280  1 мај10 ?     00:55:04 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+jana        5304       1  0 мај10 ?     00:00:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+jana        5316    5280  0 мај10 ?     00:00:17 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+jana        5319    5280  0 мај10 ?     00:00:00 /usr/libexec/xdg-document-portal
+jana        5326    5280  0 мај10 ?     00:00:00 /usr/libexec/xdg-permission-store
+root        5332    5319  0 мај10 ?     00:00:00 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+jana        5353    5280  0 мај10 ?     00:00:00 /usr/libexec/gvfsd
+jana        5362    5280  0 мај10 ?     00:00:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+root        5372       2  0 мај10 ?     00:00:00 [krfcommd]
+jana        5375    5265  0 мај10 tty2  00:00:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+jana        5378    5375  0 мај10 tty2  00:00:00 /usr/libexec/gnome-session-binary --session=ubuntu
+jana        5428    5280  0 мај10 ?     00:00:00 /usr/libexec/gnome-session-ctl --monitor
+jana        5440    5280  0 мај10 ?     00:00:03 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+jana        5460    5440  0 мај10 ?     00:00:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+jana        5466    5460  0 мај10 ?     00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus
+jana        5470    5280  4 мај10 ?     02:10:26 /usr/bin/gnome-shell
+jana        5523    5280  0 мај10 ?     00:00:00 /usr/libexec/gnome-shell-calendar-server
+jana        5529    5280  0 мај10 ?     00:00:00 /usr/libexec/evolution-source-registry
+jana        5537    5280  0 мај10 ?     00:00:14 /usr/libexec/goa-daemon
+jana        5538    5280  0 мај10 ?     00:06:24 /usr/libexec/gvfs-udisks2-volume-monitor
+root      396383     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396384     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396385     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396386     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396387     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396388     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396389     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396390     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396391     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396392     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396393     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396394     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396395     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396396     361  0 22:37 ?        00:00:00 /lib/systemd/systemd-udevd
+root      396403    1787  0 22:37 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8081 -container-ip 172.20.0.2 -container-port 8081
+root      396410    1787  0 22:37 ?        00:00:00 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8081 -container-ip 172.20.0.2 -container-port 8081
+root      396425       1  0 22:37 ?        00:00:00 /usr/bin/containerd-shim-runc-v2 -namespace moby -id d3b4fc04f2f28c7e75345473b5f4e5a0ba754995c9d4e4bde6b28146bfd5eb00 -address /run/containerd/containerd.sock
+root      396444  396425  0 22:37 ?        00:00:00 tini -- /docker-entrypoint.sh mongo-express
+root      396476  396444 24 22:37 ?        00:00:00 node app
+jana      396492  387185  0 22:37 pts/4    00:00:00 ps -edf
+[?2004h[01;32mjana@jana[00m:[01;34m~[00m$ 
+jana@jana:~$ lsof -i TCP -n -P
+COMMAND    PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+kited     5287 jana    3u  IPv4   25346      0t0  TCP 127.0.0.1:46624 (LISTEN)
+kited     5287 jana   13u  IPv4 2977537      0t0  TCP 192.168.1.2:44156->142.251.39.78:80 (ESTABLISHED)
+java    397503 jana   24u  IPv6 3013013      0t0  TCP 127.0.0.1:6942 (LISTEN)
+java    397503 jana   30u  IPv6 3015942      0t0  TCP 127.0.0.1:63342 (LISTEN)
+java    397503 jana   92u  IPv6 3046153      0t0  TCP 127.0.0.1:41779->127.0.0.1:56982 (ESTABLISHED)
+java    397503 jana  340u  IPv6 3024350      0t0  TCP 192.168.1.2:38360->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  351u  IPv6 3014565      0t0  TCP 192.168.1.2:38368->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  367u  IPv6 3045747      0t0  TCP 127.0.0.1:41779 (LISTEN)
+java    397503 jana  368u  IPv6 3042889      0t0  TCP 127.0.0.1:43250->127.0.0.1:22385 (ESTABLISHED)
+java    397503 jana  374u  IPv6 3042891      0t0  TCP 127.0.0.1:50586->127.0.0.1:43935 (ESTABLISHED)
+java    397503 jana  386u  IPv6 3024870      0t0  TCP 192.168.1.2:50118->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  397u  IPv6 3031191      0t0  TCP 192.168.1.2:50130->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  423u  IPv6 3040729      0t0  TCP 192.168.1.2:52630->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  427u  IPv6 3045738      0t0  TCP 127.0.0.1:43137 (LISTEN)
+java    397503 jana  456u  IPv6 3042919      0t0  TCP 192.168.1.2:59326->34.49.50.137:443 (ESTABLISHED)
+java    397503 jana  463u  IPv6 3036622      0t0  TCP 127.0.0.1:43137->127.0.0.1:56724 (ESTABLISHED)
+java    398615 jana   69u  IPv6 3042888      0t0  TCP 127.0.0.1:22385 (LISTEN)
+java    398615 jana   70u  IPv6 3036592      0t0  TCP 127.0.0.1:22385->127.0.0.1:43250 (ESTABLISHED)
+java    398615 jana   71u  IPv6 3038727      0t0  TCP 127.0.0.1:43935 (LISTEN)
+java    398615 jana   72u  IPv6 3041731      0t0  TCP 127.0.0.1:43935->127.0.0.1:50586 (ESTABLISHED)
+java    398790 jana   41u  IPv6 3039171      0t0  TCP 127.0.0.1:56724->127.0.0.1:43137 (ESTABLISHED)
+java    398808 jana  146u  IPv6 3043948      0t0  TCP 127.0.0.1:56982->127.0.0.1:41779 (ESTABLISHED)
+java    398808 jana  150u  IPv6 3046170      0t0  TCP *:36943 (LISTEN)
+java    398808 jana  155u  IPv6 3046183      0t0  TCP 127.0.0.1:35486->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  156u  IPv6 3036638      0t0  TCP 127.0.0.1:35490->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  157u  IPv6 3036639      0t0  TCP 127.0.0.1:35492->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  158u  IPv6 3046978      0t0  TCP 127.0.0.1:35500->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  159u  IPv6 3046979      0t0  TCP 127.0.0.1:35514->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  160u  IPv6 3044535      0t0  TCP 127.0.0.1:35526->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  161u  IPv6 3044536      0t0  TCP 127.0.0.1:35534->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  162u  IPv6 3044537      0t0  TCP 127.0.0.1:35536->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  163u  IPv6 3040802      0t0  TCP 127.0.0.1:35540->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  164u  IPv6 3043326      0t0  TCP 127.0.0.1:35556->127.0.0.1:5432 (ESTABLISHED)
+java    398808 jana  165u  IPv6 3036677      0t0  TCP *:35729 (LISTEN)
+java    398808 jana  167u  IPv6 3044006      0t0  TCP 127.0.0.1:59522->127.0.0.1:1883 (ESTABLISHED)
+java    398808 jana  168u  IPv6 3036697      0t0  TCP *:8080 (LISTEN)
