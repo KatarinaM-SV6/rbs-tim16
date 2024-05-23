@@ -16,7 +16,7 @@ Korišćenjem checkstyle alata izvršena je analiza koda, čije greške se uglav
 4.  Optional.get() metoda je pozvana bez prethodnog poziva isPresent() što može izazvati izuzetak
 5.  Zanemarivanje standardnih konevencija za pisanje koda
 
-Zatim je pokrenut OWASP Dependency Check kako bi se otkrile javno poznate ranjivosti. Izvještaj analize se nalazi na sledećem linku [Link Text](dependency-check-report) u kojem se mogu vidjeti otkrivene ranjivosti, nivo opasnosti, CVE identifikator, komponente koje su ranjive kao i predlog za rešenje ranjivosti.
+Zatim je pokrenut OWASP Dependency Check kako bi se otkrile javno poznate ranjivosti. Izvještaj analize se nalazi na sledećem [linku](dependency-check-report.html) u kojem se mogu vidjeti otkrivene ranjivosti, nivo opasnosti, CVE identifikator, komponente koje su ranjive kao i predlog za rešenje ranjivosti.
 
 ## 4. Preporuke kako bi se kod poboljšao
 
