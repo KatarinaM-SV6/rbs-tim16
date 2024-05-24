@@ -9,3 +9,16 @@
     Prvo je korišten sajt https://www.ipqualityscore.com/email-deliverability/email-spam-test-checker/ za detekciju da li je email spam na osnovu teksta. Dobijen je rezultat da je email veoma vjerovatno spam mail, ali daljom analizom utvrđeno je da se radi o steganografiji. Uz pomoć spammimic alata je dekodiran tekst poruke.
 
     UNS{EM4IL_5P4M_AG4N?}
+
+## 6. Pixel Perfect
+
+
+## 7. The Queen of the Ocean
+    Googe pretragom unosa "queen of the ocean tagged 2020" dolazimo do informacije da je u pitanju ajkula koja je uhvaćena i tagovana 2020. Na sajtu https://www.ocearch.org/queen-of-the-ocean-white-shark-nukumi-crosses-mid-atlantic-ridge-and-enters-northeast-atlantic-waters/ se mogu pronaći dodatnne informacije, kao što je njeno ime, kao i website na kome se mogu pratiti pingovi svih tagovanih ajkula, https://www.ocearch.org/tracker/. Uključivanjem filtera i unosom njenog imena, Nukumi, dobijamo njene informacije, datum kada je tagovana, kao i poslednji ping koji je bio datuma Apr 11, 2021, 3:03:07 PM, dok je poslednji Z-ping bio Oct 11, 2021, 4:47:09 AM.
+
+    RC15{Apr 11, 2021, 3:03:07 PM}
+
+## 10. Maps OSINT 2
+    Korišćenjem Google Lens alata dobijamo informaciju da se na slici nalazi Zaovinsko jezero. Pošto je specifičnog oblika, upoređivanjem slike i mape, možemo da zaključimo iz kog ugla je slika kreirana. Prigledanjem slika Street View-a u okolini, dolazimo do tražene slike i u URL-u slike se nalaze tečne koordinate, 43.8704997,19.3853197.
+    
+    UNS{43.8704997,19.3853197}
