@@ -11,6 +11,9 @@
     UNS{EM4IL_5P4M_AG4N?}
 
 ## 6. Pixel Perfect
+    Korišćenjem alata Aperi'Solve možemo pronaći skriveni ekst unutar slike:
+
+    UNS{PMF_5TUD3NT5_LOV3_M4TH}
 
 
 ## 7. The Queen of the Ocean
