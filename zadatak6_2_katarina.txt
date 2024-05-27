@@ -1,0 +1,4 @@
+Flag Format : UNS{45.12639701089335, 19.229506800267963}
+
+Prvo sam pretražila metapodatke slike da nemaju slučajno informacije o lokaciji, pa nisam našla.
+Otišla sam potom na google mape i pretražila naziv "Tehnometal alfa plam", i ulazila u street view. Na četvrti predloženi rezultat sam prepoznala mesto sa slike i preuzela koordinate prodavnice.S
