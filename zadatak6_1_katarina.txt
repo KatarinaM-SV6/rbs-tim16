@@ -1,0 +1,4 @@
+8. Squid Game Invitation
+	- Flag format : NAVY{h4v3_y0u_3v3r_w4tched_!t?}
+
+Googlala sam mejl i nisam prvo ništa pronašla. Posle sam tražila nalog sa sličnim nazivom na društvenim mrežama poput Facebook i Twitter, te takođe nisam ništa našla. Dok nisam ponovo isto ime pretražila i na github-u. Pronašla sam jednof usera sa repozitorijumom i otvorila sve fajlove koje su u repozitorijumu dok nisam ugledala flag.
