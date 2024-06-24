@@ -1,11 +1,14 @@
 from flask import Flask, request, jsonify
 import consul
 import json
+import redis
 
 app = Flask(__name__)
 
 # Initialize Consul client
 consul_client = consul.Consul(host='localhost', port=8500)
+redis_client = redis.Redis(host='localhost', port=6379, db=0)
+
 
 @app.route('/namespace/<key>', methods=['POST'])
 def write_to_consul(key):
@@ -42,6 +45,29 @@ def read_from_consul(key):
         return jsonify({'key': key, 'value': value}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/acl', methods=['POST'])
+def write_to_redis():
+    try:
+        # Extract JSON data from the request
+        data = request.get_json()
+        doc = data.get('object')
+        relation = data.get('relation')
+        user = data.get('user')
+        key = doc + '#' + relation + '@' + user
+        value = 9
+
+        if not key or value is None:
+            return jsonify({'error': 'Key and value are required'}), 400
+
+        # Write to Redis
+        redis_client.set(key, json.dumps(value))
+
+        return jsonify({'message': 'Data written to Redis successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 
 if __name__ == '__main__':
