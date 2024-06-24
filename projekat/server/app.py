@@ -57,10 +57,14 @@ def check_role(doc, relation, user):
         if not key or value is None:
             return jsonify({'error': 'Key and value are required'}), 400
         
-        curr_data = redis_client.get(key)
-        if not curr_data is None:
-            return jsonify({"authorized": True}), 200
+        # curr_data = redis_client.get(key)
+        # if not curr_data is None:
+        #     return jsonify({"authorized": True}), 200
         
+        if check_for_curr_relations(doc, relation, user):
+            return jsonify({"authorized": True}), 200
+        else:
+            return jsonify({"authorized": False}), 200
             
         # if check_for_curr_relations(doc, relation, user):
         #     return jsonify({'message': 'Data has been written already!'}), 200
@@ -85,7 +89,7 @@ def write_to_redis():
         if not key or value is None:
             return jsonify({'error': 'Key is required'}), 400
         
-        if check_for_curr_relations(doc, relation, user):
+        if check_for_curr_relations(doc, relation, user, False):
             return jsonify({'message': 'Data has been written already!'}), 200
         else:
             redis_client.set(key, json.dumps(value))
@@ -110,7 +114,7 @@ def read_all_keys_from_redis(doc, user, spec):
     return for_check
 
 
-def check_for_curr_relations(doc, relation, user):
+def check_for_curr_relations(doc, relation, user, isCheck=True):
     index, data = consul_client.kv.get(doc)
 
     if data is None:
@@ -119,7 +123,8 @@ def check_for_curr_relations(doc, relation, user):
     for_check = read_all_keys_from_redis(doc, user, value)
     # logger.info(for_check)
     for key in for_check:
-        delete_if_lower_rights(relation, value, key, doc, user)
+        if not isCheck:
+            delete_if_lower_rights(relation, value, key, doc, user)
         if relation == key:
             return True
         if check_computed_userset(relation, value, key):
