@@ -9,8 +9,13 @@ redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 
 
-def read_all_keys_from_redis(doc, user):
-    keys = {'owner': doc + '#owner@' + user, 'editor': doc + '#editor@' + user,'viewer': doc + '#viewer@' + user}
+def read_all_keys_from_redis(doc, user, spec):
+    # keys = {'owner': doc + '#owner@' + user, 'editor': doc + '#editor@' + user,'viewer': doc + '#viewer@' + user}
+    roles = list(spec['relations'].keys())
+    # keys = {'owner': doc + '#owner@' + user, 'editor': doc + '#editor@' + user,'viewer': doc + '#viewer@' + user}
+    keys = {}
+    for role in roles:
+        keys[role] = doc + '#' + role + '@' + user
     for_check = []
     for key in keys.keys():
         # r.get('e').decode('utf-8')
@@ -27,7 +32,7 @@ def check_for_curr_relations(doc, relation, user):
     if data is None:
         return False
     value = json.loads(data['Value'].decode('utf-8'))
-    for_check = read_all_keys_from_redis(doc, user)
+    for_check = read_all_keys_from_redis(doc, user, value)
     # logger.info(for_check)
     for key in for_check:
         delete_if_lower_rights(relation, value, key, doc, user)

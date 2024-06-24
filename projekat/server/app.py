@@ -48,6 +48,30 @@ def read_from_consul(key):
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/acl/check/<doc>/<relation>/<user>', methods=['GET'])
+def check_role(doc, relation, user):
+    try:
+        key = doc + '#' + relation + '@' + user
+        value = 1
+
+        if not key or value is None:
+            return jsonify({'error': 'Key and value are required'}), 400
+        
+        curr_data = redis_client.get(key)
+        if not curr_data is None:
+            return jsonify({"authorized": True}), 200
+        
+            
+        # if check_for_curr_relations(doc, relation, user):
+        #     return jsonify({'message': 'Data has been written already!'}), 200
+        # else:
+        #     redis_client.set(key, json.dumps(value))
+        #     return jsonify({'message': 'Data written to Redis successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
 @app.route('/acl', methods=['POST'])
 def write_to_redis():
     try:
@@ -59,7 +83,7 @@ def write_to_redis():
         value = 1
 
         if not key or value is None:
-            return jsonify({'error': 'Key and value are required'}), 400
+            return jsonify({'error': 'Key is required'}), 400
         
         if check_for_curr_relations(doc, relation, user):
             return jsonify({'message': 'Data has been written already!'}), 200
@@ -70,8 +94,12 @@ def write_to_redis():
         return jsonify({'error': str(e)}), 500
     
 
-def read_all_keys_from_redis(doc, user):
-    keys = {'owner': doc + '#owner@' + user, 'editor': doc + '#editor@' + user,'viewer': doc + '#viewer@' + user}
+def read_all_keys_from_redis(doc, user, spec):
+    roles = list(spec['relations'].keys())
+    # keys = {'owner': doc + '#owner@' + user, 'editor': doc + '#editor@' + user,'viewer': doc + '#viewer@' + user}
+    keys = {}
+    for role in roles:
+        keys[role] = doc + '#' + role + '@' + user
     for_check = []
     for key in keys.keys():
         # r.get('e').decode('utf-8')
@@ -88,7 +116,7 @@ def check_for_curr_relations(doc, relation, user):
     if data is None:
         return False
     value = json.loads(data['Value'].decode('utf-8'))
-    for_check = read_all_keys_from_redis(doc, user)
+    for_check = read_all_keys_from_redis(doc, user, value)
     # logger.info(for_check)
     for key in for_check:
         delete_if_lower_rights(relation, value, key, doc, user)
