@@ -4,9 +4,16 @@ import json
 import redis
 import logging
 
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 logger = logging.getLogger(__name__)
+
+load_dotenv()
+
+cert_path = os.getenv('CERT_PATH')
+key_path = os.getenv('KEY_PATH')
 
 
 # Initialize Consul client
@@ -184,4 +191,5 @@ def delete_if_lower_rights(relation, spec, curr_relation, doc, user):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True)
+    context = (cert_path, key_path)
+    app.run(debug=True, ssl_context=context)
