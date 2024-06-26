@@ -2,3 +2,4 @@ requests
 redis
 python-consul
 Flask
+python-dotenv
